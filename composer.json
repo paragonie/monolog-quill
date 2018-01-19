@@ -1,0 +1,28 @@
+{
+  "name": "paragonie/monolog-quill",
+  "description": "Monolog handler for writing to a Chronicle instance",
+  "license": "ISC",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Paragon Initiative Enterprises",
+      "email": "security@paragonie.com"
+    }
+  ],
+  "require": {
+    "php": "^7",
+    "monolog/monolog": "^1",
+    "paragonie/quill": "^0|^1"
+  },
+  "autoload": {
+    "psr-4": {
+      "ParagonIE\\MonologQuill\\": "src/"
+    }
+  },
+  "require-dev": {
+    "vimeo/psalm": "^0|^1"
+  },
+  "scripts": {
+    "static-analysis": "psalm"
+  }
+}
