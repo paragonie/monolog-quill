@@ -7,7 +7,10 @@ use Monolog\Handler\AbstractProcessingHandler;
 use Monolog\Logger;
 use ParagonIE\ConstantTime\Base64UrlSafe;
 use ParagonIE\Quill\Quill;
+use ParagonIE\Sapient\CryptographyKey;
 use ParagonIE\Sapient\CryptographyKeys\{
+    SealingPublicKey,
+    SharedEncryptionKey,
     SigningPublicKey,
     SigningSecretKey
 };
@@ -19,6 +22,12 @@ use ParagonIE\Sapient\CryptographyKeys\{
  */
 class QuillHandler extends AbstractProcessingHandler
 {
+    /** @var SharedEncryptionKey|null $encryptionKey */
+    protected $encryptionKey = null;
+
+    /** @var SealingPublicKey|null $sealingKey */
+    protected $sealingKey = null;
+
     /** @var Quill $quill */
     protected $quill;
 
@@ -63,6 +72,28 @@ class QuillHandler extends AbstractProcessingHandler
     }
 
     /**
+     * @param CryptographyKey $encKey
+     * @return self
+     * @throws \TypeError
+     */
+    public function setEncryptionKey(CryptographyKey $encKey = null): self
+    {
+        if (\is_null($encKey)) {
+            $this->sealingKey = null;
+            $this->encryptionKey = null;
+        } elseif ($encKey instanceof SealingPublicKey) {
+            $this->sealingKey = $encKey;
+            $this->encryptionKey = null;
+        } elseif ($encKey instanceof SharedEncryptionKey) {
+            $this->sealingKey = null;
+            $this->encryptionKey = $encKey;
+        } else {
+            throw new \TypeError('Invalid key type.');
+        }
+        return $this;
+    }
+
+    /**
      * @param array $record
      * @return void
      * @throws \Error
@@ -84,6 +115,12 @@ class QuillHandler extends AbstractProcessingHandler
                 $data = $ex->getMessage() . PHP_EOL . $ex->getTraceAsString();
             }
         }
-        $this->quill->blindWrite($data);
+        if (!\is_null($this->encryptionKey)) {
+            $this->quill->blindWriteEncrypted($data, $this->encryptionKey);
+        } elseif (!\is_null($this->sealingKey)) {
+            $this->quill->blindWriteSealed($data, $this->sealingKey);
+        } else {
+            $this->quill->blindWrite($data);
+        }
     }
 }
