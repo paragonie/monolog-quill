@@ -1,9 +1,18 @@
 # Monolog-Quill
 
+[![Build Status](https://travis-ci.org/paragonie/monolog-quill.svg?branch=master)](https://travis-ci.org/paragonie/monolog-quill)
+[![Latest Stable Version](https://poser.pugx.org/paragonie/monolog-quill/v/stable)](https://packagist.org/packages/paragonie/monolog-quill)
+[![Latest Unstable Version](https://poser.pugx.org/paragonie/monolog-quill/v/unstable)](https://packagist.org/packages/paragonie/monolog-quill)
+[![License](https://poser.pugx.org/paragonie/monolog-quill/license)](https://packagist.org/packages/paragonie/monolog-quill)
+[![Downloads](https://img.shields.io/packagist/dt/paragonie/monolog-quill.svg)](https://packagist.org/packages/paragonie/monolog-quill)
+
 **Requires PHP 7.**
 
 Want to use [Monolog](https://github.com/Seldaek/monolog) to write security events to
 a [Chronicle](https://github.com/paragonie/chronicle)?
+
+This library uses [Quill](https://github.com/paragonie/quill) to transcribe log messages
+to a Chronicle instance. This can be a public or private Chronicle.
 
 ## Installation
 
