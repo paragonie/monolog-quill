@@ -1,12 +1,12 @@
 # Monolog-Quill
 
-[![Build Status](https://travis-ci.org/paragonie/monolog-quill.svg?branch=master)](https://travis-ci.org/paragonie/monolog-quill)
+[![Build Status](https://github.com/paragonie/monolog-quill/actions/workflows/ci.yml/badge.svg)](https://github.com/monolog-quill/actions)
 [![Latest Stable Version](https://poser.pugx.org/paragonie/monolog-quill/v/stable)](https://packagist.org/packages/paragonie/monolog-quill)
 [![Latest Unstable Version](https://poser.pugx.org/paragonie/monolog-quill/v/unstable)](https://packagist.org/packages/paragonie/monolog-quill)
 [![License](https://poser.pugx.org/paragonie/monolog-quill/license)](https://packagist.org/packages/paragonie/monolog-quill)
 [![Downloads](https://img.shields.io/packagist/dt/paragonie/monolog-quill.svg)](https://packagist.org/packages/paragonie/monolog-quill)
 
-**Requires PHP 7.**
+**Requires PHP 7.1 or newer.**
 
 Want to use [Monolog](https://github.com/Seldaek/monolog) to write security events to
 a [Chronicle](https://github.com/paragonie/chronicle)?
