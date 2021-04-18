@@ -21,19 +21,10 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           extensions: mbstring, intl, sodium
           ini-values: post_max_size=256M, max_execution_time=180
-          tools: psalm, phpunit:${{ matrix.phpunit-versions }}
+          tools: psalm
 
       - name: Install dependencies
         run: composer install
-
-      - name: Modernize dependencies
-        run: composer require --dev "phpunit/phpunit:>=4"
-
-      - name: PHPUnit tests
-        uses: php-actions/phpunit@v2
-        timeout-minutes: 30
-        with:
-          memory_limit: 256M
 
       - name: Static Analysis
         run: vendor/bin/psalm
@@ -56,15 +47,7 @@ jobs:
           php-version: ${{ matrix.php-versions }}
           extensions: mbstring, intl, sodium
           ini-values: post_max_size=256M, max_execution_time=180
-          tools: psalm, phpunit:${{ matrix.phpunit-versions }}
-
-      - name: Install dependencies
-        run: composer install
-      - name: PHPUnit tests
-        uses: php-actions/phpunit@v2
-        timeout-minutes: 30
-        with:
-          memory_limit: 256M
+          tools: psalm
 
       - name: Static Analysis
         run: vendor/bin/psalm
