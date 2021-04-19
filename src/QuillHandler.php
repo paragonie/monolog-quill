@@ -40,6 +40,8 @@ class QuillHandler extends AbstractProcessingHandler
      * @param int $level
      * @param bool $bubble
      * @return self
+     *
+     * @psalm-suppress UnsafeInstantiation   We want this to be subclassable
      */
     public static function factory(
         string $url = '',

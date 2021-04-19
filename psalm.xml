@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <psalm
     name="Psalm tests for Monolog-Quill"
-    stopOnFirstError="false"
-    useDocblockTypes="true"
     totallyTyped="true"
 >
     <projectFiles>
         <directory name="src" />
+        <ignoreFiles>
+            <directory name="vendor" />
+        </ignoreFiles>
     </projectFiles>
 </psalm>
