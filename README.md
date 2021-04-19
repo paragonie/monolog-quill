@@ -1,6 +1,6 @@
 # Monolog-Quill
 
-[![Build Status](https://github.com/paragonie/monolog-quill/actions/workflows/ci.yml/badge.svg)](https://github.com/monolog-quill/actions)
+[![Build Status](https://github.com/paragonie/monolog-quill/actions/workflows/ci.yml/badge.svg)](https://github.com/paragonie/monolog-quill/actions)
 [![Latest Stable Version](https://poser.pugx.org/paragonie/monolog-quill/v/stable)](https://packagist.org/packages/paragonie/monolog-quill)
 [![Latest Unstable Version](https://poser.pugx.org/paragonie/monolog-quill/v/unstable)](https://packagist.org/packages/paragonie/monolog-quill)
 [![License](https://poser.pugx.org/paragonie/monolog-quill/license)](https://packagist.org/packages/paragonie/monolog-quill)
